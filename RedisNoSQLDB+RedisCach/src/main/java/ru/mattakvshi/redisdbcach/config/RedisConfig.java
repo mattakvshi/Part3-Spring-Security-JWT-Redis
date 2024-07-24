@@ -13,7 +13,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 @Configuration
 @EnableCaching
-public class RedisConfig {
+public class RedisConfig {    //Чекни статью https://nuancesprog.ru/p/14313/
 
     @Bean
     public CacheManager cacheManager(
