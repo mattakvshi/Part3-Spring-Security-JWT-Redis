@@ -1,6 +1,7 @@
 package ru.mattakvshi.redisdbcach.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import ru.mattakvshi.redisdbcach.dao.UserRepository;
 import ru.mattakvshi.redisdbcach.dto.UserRequestBody;
@@ -26,6 +27,7 @@ public class UserService {
         return userRepository.save(user);
     }
 
+    @Cacheable(value = "getUserById", key = "#id")
     public User getUserById(Long id) {
         return userRepository.findById(id).orElse(null);
     }
