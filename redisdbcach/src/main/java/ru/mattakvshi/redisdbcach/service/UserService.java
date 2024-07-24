@@ -3,6 +3,7 @@ package ru.mattakvshi.redisdbcach.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.mattakvshi.redisdbcach.dao.UserRepository;
+import ru.mattakvshi.redisdbcach.dto.UserRequestBody;
 import ru.mattakvshi.redisdbcach.model.User;
 
 import java.util.UUID;
@@ -17,7 +18,11 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public User save(User user) {
+    public User save(UserRequestBody userRequestBody) {
+        User user = User.builder()  //Использую стандартный билдер из ломбока
+                .username(userRequestBody.getUsername())
+                .age(userRequestBody.getAge())
+                .build();
         return userRepository.save(user);
     }
 

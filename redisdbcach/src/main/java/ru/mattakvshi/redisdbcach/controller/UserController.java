@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.mattakvshi.redisdbcach.dao.UserRepository;
+import ru.mattakvshi.redisdbcach.dto.UserRequestBody;
 import ru.mattakvshi.redisdbcach.model.User;
 import ru.mattakvshi.redisdbcach.service.UserService;
 
@@ -16,8 +17,8 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/redis/save")
-    public ResponseEntity<User> saveRedis(@RequestBody User user) {
-        return new ResponseEntity<>(userService.save(user), HttpStatusCode.valueOf(201));
+    public ResponseEntity<User> saveRedis(@RequestBody UserRequestBody  userRequestBody) {
+        return new ResponseEntity<>(userService.save(userRequestBody), HttpStatusCode.valueOf(201));
     }
 
     @GetMapping("/redis/get")
