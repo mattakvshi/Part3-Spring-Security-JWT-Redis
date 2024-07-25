@@ -3,8 +3,9 @@ package ru.mattakvshi.SpringBoot.PostgreSQL.RedisCach.dto.community;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Data;
-import ru.mattakvshi.near.entity.NotificationOptions;
-import ru.mattakvshi.near.entity.base.User;
+import ru.mattakvshi.SpringBoot.PostgreSQL.RedisCach.model.NotificationOptions;
+import ru.mattakvshi.SpringBoot.PostgreSQL.RedisCach.model.base.User;
+
 
 import java.time.LocalDate;
 import java.util.List;

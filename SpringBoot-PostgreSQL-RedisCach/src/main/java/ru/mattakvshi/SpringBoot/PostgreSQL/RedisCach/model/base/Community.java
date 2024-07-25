@@ -4,7 +4,7 @@ package ru.mattakvshi.SpringBoot.PostgreSQL.RedisCach.model.base;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
-import ru.mattakvshi.near.entity.EmergencyTypes;
+import ru.mattakvshi.SpringBoot.PostgreSQL.RedisCach.model.EmergencyTypes;
 
 import java.time.LocalDate;
 import java.util.List;

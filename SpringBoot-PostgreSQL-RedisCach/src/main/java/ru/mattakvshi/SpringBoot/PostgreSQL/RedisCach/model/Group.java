@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
-import ru.mattakvshi.near.entity.base.User;
+import ru.mattakvshi.SpringBoot.PostgreSQL.RedisCach.model.base.User;
 
 import java.util.List;
 import java.util.UUID;

@@ -3,9 +3,9 @@ package ru.mattakvshi.SpringBoot.PostgreSQL.RedisCach.model.base;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
-import ru.mattakvshi.near.dto.user.UserDTOForUser;
-import ru.mattakvshi.near.entity.Group;
-import ru.mattakvshi.near.entity.NotificationOptions;
+import ru.mattakvshi.SpringBoot.PostgreSQL.RedisCach.dto.user.UserDTOForUser;
+import ru.mattakvshi.SpringBoot.PostgreSQL.RedisCach.model.Group;
+import ru.mattakvshi.SpringBoot.PostgreSQL.RedisCach.model.NotificationOptions;
 
 import java.time.LocalDate;
 import java.time.Period;

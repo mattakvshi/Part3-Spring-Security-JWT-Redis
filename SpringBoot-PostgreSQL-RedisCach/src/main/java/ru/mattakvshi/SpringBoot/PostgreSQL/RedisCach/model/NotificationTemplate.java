@@ -9,7 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
-import ru.mattakvshi.near.entity.base.TemplateOwner;
+import ru.mattakvshi.SpringBoot.PostgreSQL.RedisCach.model.base.TemplateOwner;
 
 import java.io.Serializable;
 import java.util.UUID;

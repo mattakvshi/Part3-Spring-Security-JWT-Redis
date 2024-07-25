@@ -5,10 +5,11 @@ import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToMany;
 import lombok.Data;
-import ru.mattakvshi.near.dto.community.UserDTOForCommunity;
-import ru.mattakvshi.near.dto.notice.NoticeTemplDTOForOwner;
-import ru.mattakvshi.near.entity.*;
-import ru.mattakvshi.near.entity.base.User;
+import ru.mattakvshi.SpringBoot.PostgreSQL.RedisCach.dto.community.UserDTOForCommunity;
+import ru.mattakvshi.SpringBoot.PostgreSQL.RedisCach.dto.notice.NoticeTemplDTOForOwner;
+import ru.mattakvshi.SpringBoot.PostgreSQL.RedisCach.model.NotificationOptions;
+import ru.mattakvshi.SpringBoot.PostgreSQL.RedisCach.model.base.User;
+
 
 import java.time.LocalDate;
 import java.util.List;

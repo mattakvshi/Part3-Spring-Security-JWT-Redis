@@ -3,8 +3,9 @@ package ru.mattakvshi.SpringBoot.PostgreSQL.RedisCach.dto.notice;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Data;
-import ru.mattakvshi.near.entity.EmergencyTypes;
-import ru.mattakvshi.near.entity.NotificationTemplate;
+import ru.mattakvshi.SpringBoot.PostgreSQL.RedisCach.model.EmergencyTypes;
+import ru.mattakvshi.SpringBoot.PostgreSQL.RedisCach.model.NotificationTemplate;
+
 
 import java.util.UUID;
 
