@@ -1,5 +1,9 @@
 package ru.mattakvshi.SpringBoot.PostgreSQL.RedisCach.config;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.jsontype.impl.LaissezFaireSubTypeValidator;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
@@ -19,6 +23,14 @@ public class RedisConfig {   //Чекни статью https://nuancesprog.ru/p/
     public CacheManager cacheManager(
             RedisConnectionFactory redisConnectionFactory
     ) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.registerModule(new JavaTimeModule());
+//        objectMapper.activateDefaultTyping(
+//                LaissezFaireSubTypeValidator.instance,
+//                ObjectMapper.DefaultTyping.NON_FINAL,
+//                JsonTypeInfo.As.PROPERTY
+//        );
+
         RedisCacheConfiguration config = RedisCacheConfiguration
                 .defaultCacheConfig()
                 .serializeKeysWith(
@@ -29,7 +41,7 @@ public class RedisConfig {   //Чекни статью https://nuancesprog.ru/p/
                 .serializeValuesWith(
                         RedisSerializationContext
                                 .SerializationPair
-                                .fromSerializer(new GenericJackson2JsonRedisSerializer())
+                                .fromSerializer(new GenericJackson2JsonRedisSerializer(objectMapper))
                 );
 
         return RedisCacheManager
