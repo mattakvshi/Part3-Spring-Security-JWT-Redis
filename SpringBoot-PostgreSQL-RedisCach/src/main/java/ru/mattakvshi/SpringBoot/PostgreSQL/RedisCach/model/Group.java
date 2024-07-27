@@ -7,13 +7,14 @@ import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 import ru.mattakvshi.SpringBoot.PostgreSQL.RedisCach.model.base.User;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.UUID;
 
 @Data
 @Entity
 @Table(name ="Groups")
-public class Group {
+public class Group implements Serializable {
 
     @Id
     @GeneratedValue(generator = "UUID")

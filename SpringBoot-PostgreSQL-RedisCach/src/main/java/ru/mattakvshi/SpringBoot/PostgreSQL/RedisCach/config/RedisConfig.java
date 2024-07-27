@@ -12,6 +12,7 @@ import org.springframework.data.redis.cache.RedisCacheConfiguration;
 import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
+import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializationContext;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
@@ -23,13 +24,18 @@ public class RedisConfig {   //Чекни статью https://nuancesprog.ru/p/
     public CacheManager cacheManager(
             RedisConnectionFactory redisConnectionFactory
     ) {
+
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.registerModule(new JavaTimeModule());
+
         objectMapper.activateDefaultTyping(
                 LaissezFaireSubTypeValidator.instance,
                 ObjectMapper.DefaultTyping.NON_FINAL,
                 JsonTypeInfo.As.PROPERTY
         );
+
+        // Используем Jackson2JsonRedisSerializer с настроенным ObjectMapper
+        Jackson2JsonRedisSerializer<Object> serializer = new Jackson2JsonRedisSerializer<>(objectMapper, Object.class);
 
         RedisCacheConfiguration config = RedisCacheConfiguration
                 .defaultCacheConfig()
@@ -41,7 +47,11 @@ public class RedisConfig {   //Чекни статью https://nuancesprog.ru/p/
                 .serializeValuesWith(
                         RedisSerializationContext
                                 .SerializationPair
-                                .fromSerializer(new GenericJackson2JsonRedisSerializer(objectMapper))
+                                .fromSerializer(
+                                        serializer
+                                        //new GenericJackson2JsonRedisSerializer(objectMapper)
+                                )
+
                 );
 
         return RedisCacheManager

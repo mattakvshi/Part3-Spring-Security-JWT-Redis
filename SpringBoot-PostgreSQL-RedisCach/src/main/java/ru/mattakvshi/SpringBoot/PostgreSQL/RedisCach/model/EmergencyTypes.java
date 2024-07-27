@@ -3,10 +3,12 @@ package ru.mattakvshi.SpringBoot.PostgreSQL.RedisCach.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
 @Entity
 @Table(name = "Emergency_type")
-public class EmergencyTypes {
+public class EmergencyTypes implements Serializable  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

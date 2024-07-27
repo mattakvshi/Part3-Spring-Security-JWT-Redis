@@ -7,6 +7,7 @@ import ru.mattakvshi.SpringBoot.PostgreSQL.RedisCach.dto.user.UserDTOForUser;
 import ru.mattakvshi.SpringBoot.PostgreSQL.RedisCach.model.Group;
 import ru.mattakvshi.SpringBoot.PostgreSQL.RedisCach.model.NotificationOptions;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name ="Users")
-public class User extends TemplateOwner {
+public class User extends TemplateOwner  implements Serializable {
 
     //Вынес id в супер класс, так как нужны уникальные на уровне двух сущностей, для работы с шаблонами
 

@@ -6,12 +6,13 @@ import lombok.Data;
 import ru.mattakvshi.SpringBoot.PostgreSQL.RedisCach.dto.community.UserDTOForCommunity;
 import ru.mattakvshi.SpringBoot.PostgreSQL.RedisCach.model.Group;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Data
-public class GroupDTOForUser {
+public class GroupDTOForUser implements Serializable {
 
     @JsonSerialize(using = ToStringSerializer.class)
     private UUID id;

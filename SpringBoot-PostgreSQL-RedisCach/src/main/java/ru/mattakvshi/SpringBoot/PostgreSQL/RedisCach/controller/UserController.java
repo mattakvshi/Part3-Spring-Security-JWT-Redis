@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import ru.mattakvshi.SpringBoot.PostgreSQL.RedisCach.dao.UserRepository;
 import ru.mattakvshi.SpringBoot.PostgreSQL.RedisCach.dto.user.UserDTOForUser;
+import ru.mattakvshi.SpringBoot.PostgreSQL.RedisCach.model.base.User;
 import ru.mattakvshi.SpringBoot.PostgreSQL.RedisCach.service.UserService;
 
 import java.util.UUID;
@@ -28,4 +29,15 @@ public class UserController {
         }
         return new ResponseEntity<>(user, HttpStatusCode.valueOf(200));
     }
+
+    @GetMapping("/user/original")
+    public ResponseEntity<String> getOriginalUser(@RequestParam UUID id) {
+        var user = userService.getOriginalUser(id);
+        if (user == null) {
+            return new ResponseEntity<>(HttpStatusCode.valueOf(400));
+        }
+        return new ResponseEntity<>(user, HttpStatusCode.valueOf(200));
+    }
+
+
 }

@@ -4,11 +4,13 @@ package ru.mattakvshi.SpringBoot.PostgreSQL.RedisCach.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.io.Serializable;
+
 
 @Data
 @Entity
 @Table(name = "Notification_options")
-public class NotificationOptions {
+public class NotificationOptions implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +25,6 @@ public class NotificationOptions {
 
     @Column(name = "bg_color")
     private String bgColor;
-
 
     @Column(name = "color_dark")
     private String colorDark;

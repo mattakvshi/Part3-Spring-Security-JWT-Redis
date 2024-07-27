@@ -6,13 +6,14 @@ import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import ru.mattakvshi.SpringBoot.PostgreSQL.RedisCach.model.EmergencyTypes;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
 @Data
 @Entity
 @Table(name = "Communities")
-public class Community extends TemplateOwner {
+public class Community extends TemplateOwner implements Serializable {
 
     //Вынес id в супер класс, так как нужны уникальные на уровне двух сущностей, для работы с шаблонами
 

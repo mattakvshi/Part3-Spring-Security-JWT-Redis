@@ -1,18 +1,21 @@
 package ru.mattakvshi.SpringBoot.PostgreSQL.RedisCach.dto.community;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import lombok.Data;
 import ru.mattakvshi.SpringBoot.PostgreSQL.RedisCach.model.NotificationOptions;
 import ru.mattakvshi.SpringBoot.PostgreSQL.RedisCach.model.base.User;
 
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
 @Data
-public class UserDTOForCommunity {
+public class UserDTOForCommunity implements Serializable  {
 
     @JsonSerialize(using = ToStringSerializer.class)
     private UUID id;
@@ -21,6 +24,8 @@ public class UserDTOForCommunity {
 
     private String lastName;
 
+    @JsonSerialize(using = ToStringSerializer.class)
+    @JsonDeserialize(using = LocalDateDeserializer.class)
     private LocalDate birthday;
 
     private Integer age;
@@ -31,9 +36,11 @@ public class UserDTOForCommunity {
 
     private String district;
 
+    @JsonSerialize(using = ToStringSerializer.class)
+    @JsonDeserialize(using = LocalDateDeserializer.class)
     private LocalDate registrationDate;
 
-    private List<NotificationOptions> selectedOptions;
+    //private List<NotificationOptions> selectedOptions;
 
     private int friendsCount;
 
@@ -54,7 +61,7 @@ public class UserDTOForCommunity {
         dto.setCity(user.getCity());
         dto.setDistrict(user.getDistrict());
         dto.setRegistrationDate(user.getRegistrationDate());
-        dto.setSelectedOptions(user.getSelectedOptions());
+        //dto.setSelectedOptions(user.getSelectedOptions());
 
         dto.setFriendsCount(user.getFriends() != null ? user.getFriends().size() : 0);
         //dto.setGroupsCount(user.getGroups() != null ? user.getGroups().size() : 0);
