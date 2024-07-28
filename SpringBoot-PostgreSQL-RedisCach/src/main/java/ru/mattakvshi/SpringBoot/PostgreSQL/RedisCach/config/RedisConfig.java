@@ -16,6 +16,9 @@ import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializationContext;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
+
+//docker exec -it container-name redis-cli FLUSHALL
+
 @Configuration
 @EnableCaching
 public class RedisConfig {   //Чекни статью https://nuancesprog.ru/p/14313/
